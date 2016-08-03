@@ -1,0 +1,17 @@
+export GREP_OPTIONS='--color=always'
+
+# my aliases
+alias src="source ~/.profile"
+
+# generally useful functions
+function findFileByName {
+  find . -name $1
+}
+
+function searchAllFilesForString {
+  grep -R $1 .
+}
+
+function searchFileTypeForString {
+  grep -R --include=$1 $2 .
+}
