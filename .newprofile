@@ -2,6 +2,24 @@ export GREP_OPTIONS='--color=always'
 
 # my aliases
 alias src="source ~/.profile"
+alias ports='netstat -tulanp'
+
+# performance related aliases
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+ 
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+# git shorthand
+alias pushto="git push origin"
+alias pullfrom="git pull upstream"
+alias dontPushUpstream="git remote set-url --push upstream do.not.push.upstream.invalid"
+alias fetchup="git fetch upstream"
+alias cloneall="git clone --recursive"
+alias ..="cd .."
 
 # generally useful functions
 function findFileByName {
