@@ -1,3 +1,7 @@
+# cute terminal prompt
+export PS1="\u@\w <U+1F4BB>  $ "
+
+# color grep
 export GREP_OPTIONS='--color=always'
 
 # my aliases
