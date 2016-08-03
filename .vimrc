@@ -17,5 +17,3 @@ set colorcolumn=80
 
 syntax enable
 set background=dark
-colorscheme solarized
-color solarized
