@@ -1,12 +1,10 @@
 # cute terminal prompt
 export PS1="\u@\w <U+1F4BB>  $ "
 
-# color grep
-export GREP_OPTIONS='--color=always'
-
 # my aliases
 alias src="source ~/.profile"
 alias ports='netstat -tulanp'
+alias grep='grep --color'
 
 # performance related aliases
 ## get top process eating memory
