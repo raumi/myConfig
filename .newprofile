@@ -1,9 +1,13 @@
 # CAUTION: this could possibly mess with certain build scripts!
 export GREP_OPTIONS='--color=always'
 
+# cute terminal prompt
+export PS1="\u@\w <U+1F4BB>  $ "
+
 # my aliases
 alias src="source ~/.profile"
 alias ports='netstat -tulanp'
+alias grep='grep --color'
 
 # macOS-specific
 alias alert="afplay /System/Library/Sounds/Purr.aiff"
