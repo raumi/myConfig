@@ -1,8 +1,12 @@
+# CAUTION: this could possibly mess with certain build scripts!
 export GREP_OPTIONS='--color=always'
 
 # my aliases
 alias src="source ~/.profile"
 alias ports='netstat -tulanp'
+
+# macOS-specific
+alias alert="afplay /System/Library/Sounds/Purr.aiff"
 
 # performance related aliases
 ## get top process eating memory
