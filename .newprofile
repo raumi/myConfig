@@ -41,3 +41,7 @@ function searchAllFilesForString {
 function searchFileTypeForString {
   grep -R --include=$1 $2 .
 }
+
+function occurrences {
+  grep -o $1 $2 | wc -l
+}
