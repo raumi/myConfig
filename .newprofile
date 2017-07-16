@@ -2,7 +2,7 @@
 export GREP_OPTIONS='--color=always'
 
 # cute terminal prompt
-export PS1="\u@\w <U+1F4BB>  $ "
+export PS1="\u@\w 🦑 "
 
 # my aliases
 alias src="source ~/.profile"
