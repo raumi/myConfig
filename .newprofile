@@ -45,3 +45,20 @@ function searchFileTypeForString {
 function occurrences {
   grep -o $1 $2 | wc -l
 }
+
+# verify the checksum using a specified SHA algorithm
+function verifyShasum {
+  if [ $# == "3" ]; then
+      local shaResult="$(shasum -a $2 $1)"
+      echo $shaResult
+      local parts=($shaResult)
+      if [ "${parts[0]}" == "$3" ];
+      then
+          echo "Checksum matched!"
+      else
+          echo "FAILED. Checksum did NOT match!"
+      fi
+  else
+      echo "Usage: verifyShasum <file> <sha algorithm> <expected sum>"
+  fi
+}
