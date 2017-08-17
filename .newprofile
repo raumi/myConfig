@@ -31,7 +31,24 @@ alias ..="cd .."
 
 # generally useful functions
 function findFileByName {
+  echo "Searching for files matching \"$1\"..."
   find . -name $1
+}
+
+function editFileByName {
+  echo "Searching for files matching \"$1\"..."
+  matches=($(findFileByName "$1"))
+  
+  if [ ${#matches[@]} -eq 0 ]; then
+      echo "Found no matches for that filename"
+  else
+      for index in ${!matches[@]}; do
+          echo $((index)): "${matches[$index]}"
+      done
+ 
+      read -p "Enter the number matching the file you wish to edit (in vim): " desiredIndex
+      vim -- ${matches[${desiredIndex}]}
+  fi 
 }
 
 function searchAllFilesForString {
