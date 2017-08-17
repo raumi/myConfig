@@ -37,18 +37,20 @@ function findFileByName {
 
 function editFileByName {
   echo "Searching for files matching \"$1\"..."
-  matches=($(findFileByName "$1"))
-  
+  matches=($(find . -name $1))
+
   if [ ${#matches[@]} -eq 0 ]; then
       echo "Found no matches for that filename"
+  elif [ ${#matches[@]} -eq 1 ]; then
+      vim -- ${matches[0]}
   else
       for index in ${!matches[@]}; do
           echo $((index)): "${matches[$index]}"
       done
- 
+
       read -p "Enter the number matching the file you wish to edit (in vim): " desiredIndex
       vim -- ${matches[${desiredIndex}]}
-  fi 
+  fi
 }
 
 function searchAllFilesForString {
