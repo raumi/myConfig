@@ -53,6 +53,27 @@ function editFileByName {
   fi
 }
 
+# search git branch for file
+function searchBranchForFile {
+  git ls-tree -r --name-only $1 | grep $2
+}
+
+function showFileFromBranch {
+  matches=($(searchBranchForFile $2 $1))
+  if [ ${#matches[@]} -eq 0 ]; then
+        echo "Found no matches for that filename"
+    elif [ ${#matches[@]} -eq 1 ]; then
+        git show $2:${matches[0]}
+    else
+        for index in ${!matches[@]}; do
+            echo $((index)): "${matches[$index]}"
+        done
+ 
+        read -p "Enter the number matching the file you wish to view: " desiredIndex
+        git show $2:${matches[${desiredIndex}]}
+    fi
+}
+
 function searchAllFilesForString {
   grep -R $1 .
 }
