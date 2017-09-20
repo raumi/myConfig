@@ -31,7 +31,7 @@ alias ..="cd .."
 
 # generally useful functions
 function findFileByName {
-  echo "Searching for files matching \"$1\"..."
+  echo "Searching for files matching \"$1\" (remember to enclose in single quotes if using regex)..."
   find . -name $1
 }
 
