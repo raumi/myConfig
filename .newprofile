@@ -8,6 +8,8 @@ export PS1="\u@\w 🦑 "
 alias src="source ~/.profile"
 alias ports='netstat -tulanp'
 alias grep='grep --color'
+alias ll='ls -l'
+alias la='ls -a'
 
 # macOS-specific
 alias alert="afplay /System/Library/Sounds/Purr.aiff"
@@ -27,6 +29,7 @@ alias pullfrom="git pull upstream"
 alias dontPushUpstream="git remote set-url --push upstream do.not.push.upstream.invalid"
 alias fetchup="git fetch upstream"
 alias cloneall="git clone --recursive"
+alias dummyCommit="git commit --allow-empty"
 alias ..="cd .."
 
 # generally useful functions
