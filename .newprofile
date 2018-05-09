@@ -4,6 +4,17 @@ export GREP_OPTIONS='--color=always'
 # cute terminal prompt
 export PS1="\u@\w 🦑 "
 
+# licensing
+function setAuthor {
+  eval author="$1"
+  export AUTHOR=$author
+}
+
+function setLicense {
+  eval license="$1"
+  export MY_LICENSE=$license
+}
+
 # my aliases
 alias src="source ~/.profile"
 alias ports='netstat -tulanp'
@@ -105,3 +116,24 @@ function verifyShasum {
       echo "Usage: verifyShasum <file> <sha algorithm> <expected sum>"
   fi
 }
+
+checkLicensing() {
+  printf "author: %s " "${AUTHOR:?Please set the AUTHOR environment variable. Consider using `setAuthor` to set the variable for your current shell (remember you will need to escape strings with spaces e.g. \"\"Name Surname\"\") or exporting the variable in your shell profile for persistence.}"
+  printf "license: %s\n" "${MY_LICENSE:?Please set the MY_LICENSE environment variable. Consider using `setLicense` to set the variable for your current shell (remember you will need to escape strings with spaces e.g. \"\"My License String\"\") or exporting the variable in your shell profile for persistence.}"
+}
+
+function create-py {
+  echo "Creating Python file with..."
+  checkLicensing
+  printf "\"\"\"\nFile: "$1".py\nAuthor: ${AUTHOR}\nDescription: TODO\n\n${MY_LICENSE}\n\"\"\"\n" > "$1".py
+}
+
+function create-cpp-class {
+  echo "Creating C++ class (header and cpp files) with..."
+  checkLicensing
+  header="$1".h
+  impl="$1".cpp
+  printf "/**\n* File: $header\n* Author: ${AUTHOR}\n* Description: TODO\n* \n* ${MY_LICENSE}\n*/" > $header
+  printf "/**\n* File: $impl\n* Author: ${AUTHOR}\n* Description: Implementation of $header\n* \n* ${MY_LICENSE}\n*/" > $impl
+}
+
