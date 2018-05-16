@@ -133,7 +133,7 @@ function create-cpp-class {
   checkLicensing
   header="$1".h
   impl="$1".cpp
-  printf "/**\n* File: $header\n* Author: ${AUTHOR}\n* Description: TODO\n* \n* ${MY_LICENSE}\n*/" > $header
-  printf "/**\n* File: $impl\n* Author: ${AUTHOR}\n* Description: Implementation of $header\n* \n* ${MY_LICENSE}\n*/" > $impl
+  printf "/**\n * File: $header\n * Author: ${AUTHOR}\n * Description: TODO\n * \n * ${MY_LICENSE}\n*/" > $header
+  printf "/**\n * File: $impl\n * Author: ${AUTHOR}\n * Description: Implementation of $header\n * \n * ${MY_LICENSE}\n*/" > $impl
 }
 
