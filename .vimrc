@@ -19,7 +19,7 @@ set shiftwidth=4
 set expandtab
 
 " suggest to stop writing after 80 chars per line
-set colorcolumn=80
+set colorcolumn=100
 
 syntax enable
 set background=dark
