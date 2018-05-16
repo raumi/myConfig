@@ -114,6 +114,7 @@ function verifyShasum {
       fi
   else
       echo "Usage: verifyShasum <file> <sha algorithm> <expected sum>"
+      echo "Example: verifyShasum download.dmg 256 expectedSumValue"
   fi
 }
 
