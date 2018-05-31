@@ -21,6 +21,7 @@ alias ports='netstat -tulanp'
 alias grep='grep --color'
 alias ll='ls -l'
 alias la='ls -a'
+alias ..="cd .."
 
 # macOS-specific
 alias alert="afplay /System/Library/Sounds/Purr.aiff"
@@ -41,7 +42,10 @@ alias dontPushUpstream="git remote set-url --push upstream do.not.push.upstream.
 alias fetchup="git fetch upstream"
 alias cloneall="git clone --recursive"
 alias dummyCommit="git commit --allow-empty"
-alias ..="cd .."
+# Merge changes only (not commits) from another branch
+function mergeBranchNoCommitsNoFF {
+    git merge $1 --no-commit --no-ff
+}
 
 # generally useful functions
 function findFileByName {
