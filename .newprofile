@@ -54,6 +54,9 @@ function findFileByName {
 }
 
 function editFileByName {
+  # N.B. silly zsh users, uncomment next line:
+  #emulate -L ksh
+  
   echo "Searching for files matching \"$1\"..."
   matches=($(find . -name $1))
 
