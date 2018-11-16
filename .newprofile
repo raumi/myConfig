@@ -53,6 +53,11 @@ function findFileByName {
   find . -name $1
 }
 
+function findDirByName {
+  echo "Searching for directories matching \"$1\" (remember to enclose in single quotes if using regex)..."
+  find . -name $1 -type d
+}
+
 function editFileByName {
   # N.B. silly zsh users, uncomment next line:
   #emulate -L ksh
