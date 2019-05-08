@@ -71,6 +71,24 @@ function editFileByName {
   fi
 }
 
+function lessFileByName {
+  echo "Searching for files matching \"$1\"..."
+  matches=($(find . -name $1))
+
+  if [ ${#matches[@]} -eq 0 ]; then
+      echo "Found no matches for that filename"
+  elif [ ${#matches[@]} -eq 1 ]; then
+      less -- ${matches[0]}
+  else
+      for index in ${!matches[@]}; do
+          echo $((index)): "${matches[$index]}"
+      done
+
+      read -p "Enter the number matching the file you wish to view (with less): " desiredIndex
+      less -- ${matches[${desiredIndex}]}
+  fi
+}
+
 # search git branch for file
 function searchBranchForFile {
   git ls-tree -r --name-only $1 | grep $2
@@ -96,8 +114,16 @@ function searchAllFilesForString {
   grep -R $1 .
 }
 
+function listAllFilesWithString {
+  grep -R -l $1 .
+}
+
 function searchFileTypeForString {
   grep -R --include=$1 $2 .
+}
+
+function listAllFilesOfTypeWithString {
+  grep -R -l --include=$1 $2 .
 }
 
 function occurrences {
