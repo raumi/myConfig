@@ -122,12 +122,20 @@ function searchAllFilesForString {
   grep -R $1 .
 }
 
+function searchAllFilesForStringToFile {
+  grep -R $1 . > $2
+}
+
 function listAllFilesWithString {
   grep -R -l $1 .
 }
 
 function searchFileTypeForString {
   grep -R --include=$1 $2 .
+}
+
+function searchFileTypeForStringToFile {                                                            
+  grep -R --include=$1 $2 . > $3                                                      
 }
 
 function listAllFilesOfTypeWithString {
