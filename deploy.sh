@@ -4,3 +4,5 @@
 cat .newprofile >> $HOME/.profile
 
 cp .vimrc $HOME
+chmod +x pdfocr.zsh
+cp pdfocr.zsh $HOME
